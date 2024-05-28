@@ -11,6 +11,9 @@
     </a>
 </p>
 
+> [!IMPORTANT]
+> This fork contains the colors `#50ab88`, `#49ce9b`, `#34ab7e` called 'tree'
+
 ## Getting started
 
 Install `rose-pine/neovim` using your favourite plugin manager:
