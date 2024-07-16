@@ -13,6 +13,7 @@
 ---@field foam string A calm cyan
 ---@field iris string A muted purple
 ---@field tree string A pastel green
+---@field inv string Background color: Moon/Main --> Dawn; Dawn --> Moon
 ---@field highlight_low string A low contrast background
 ---@field highlight_med string A medium contrast background
 ---@field highlight_high string A high contrast background

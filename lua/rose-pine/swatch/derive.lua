@@ -151,16 +151,22 @@ function M.generatePalette(skeleton)
             base = skeleton.dawn.base,
             text = skeleton.dawn.text,
             none = "NONE",
+
+            inv = skeleton.moon.base,
         },
         moon = {
             base = skeleton.moon.base,
             text = skeleton.moon.text,
             none = "NONE",
+
+            inv = skeleton.dawn.base,
         },
         main = {
             base = skeleton.main.base,
             text = skeleton.main.text,
             none = "NONE",
+
+            inv = skeleton.dawn.base,
         },
     }
 
