@@ -9,7 +9,7 @@
 > This fork:
 > - Contains the colors `#50ab88`, `#49ce9b`, `#34ab7e` called 'tree'
 > - Has a new swatch called "Sakura," because I like pink
->   - See the [Swatch Readme](/lua/rose-pine/swatch/derive.lua)
+>   - See the [Swatch Readme](/lua/rose-pine/swatch)
 > - Now derives all colors,
 
 ## Getting started
@@ -46,11 +46,21 @@ Install `rose-pine/neovim` using your favourite plugin manager:
 </details>
 
 <details>
-	<summary><b>Sakura Pine</b></summary>
+    <summary><b>Sakura Pine</b></summary>
 
 ![image](https://github.com/user-attachments/assets/18246fd0-f5f6-4863-aa3b-3128454dff7f)
 ![image](https://github.com/user-attachments/assets/1bcf7ad1-d13b-4ae9-9e7e-da254c326541)
 ![image](https://github.com/user-attachments/assets/88d8c75d-86c3-4b1a-b78c-2bb88010623a)
+
+</details>
+
+<details>
+    <summary><b>Forest</b></summary>
+
+![image](https://github.com/user-attachments/assets/2c9b0b00-6116-41a0-8ba4-802a6aa3dd80)
+![image](https://github.com/user-attachments/assets/30b5f597-19d7-4207-b9e4-a27327da5f2b)
+![image](https://github.com/user-attachments/assets/8182ed1e-65ee-4095-8250-a2f7e18b906e)
+
 
 </details>
 
@@ -62,16 +72,19 @@ Install `rose-pine/neovim` using your favourite plugin manager:
 Rosé Pine has three `variant`s: main, moon, and dawn. By default, `vim.o.background` is followed, using dawn when light and `dark_variant` when dark.
 
 Colour values accept named colours from the [Rosé Pine palette](https://rosepinetheme.com/palette/ingredients/), e.g. "foam", or valid hex, e.g. "#fa8072".
+Sakura Pine also has a green color called `tree`
 
-> [!IMPORTANT]
-> Sakura Pine has two `swatch`es: rosepine, and sakura. By default, it is rosepine.
-> We also have a green color called "tree."
+> [!NOTE]
+> Sakura Pine has the available swatches:
+> - `rosepine`
+> - `sakura`
+> - `forest`
 
 ```lua
 require("rose-pine").setup({
     variant = "auto", -- auto, main, moon, or dawn
     dark_variant = "main", -- main, moon, or dawn
-    swatch = "rosepine" -- sakura, or rosepine
+    swatch = "rosepine" -- sakura, forest, or rosepine
 
     dim_inactive_windows = false,
     extend_background_behind_borders = true,
