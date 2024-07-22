@@ -30,6 +30,7 @@
 ---@class RosePine.Swatches
 ---@field rosepine RosePine.Variant The original RosePine palette
 ---@field sakura RosePine.Variant A calming pink palette
+---@field forest RosePine.Variant For those who really like touching grass
 ---@field [string] RosePine.Variant An unnamed swatch
 
 
@@ -92,7 +93,7 @@
 
 
 ---@alias RosePine.Enum.Variant "main" | "moon" | "dawn"
----@alias RosePine.Enum.Swatch "rosepine" | "sakura"
+---@alias RosePine.Enum.Swatch "rosepine" | "sakura" | "forest"
 ---@alias RosePine.Enum.Palette.Paint "love" | "gold" | "rose" | "pine" | "foam" | "iris" | "tree"
 ---@alias RosePine.Enum.Palette.Layer "base" | "surface" | "overlay"
 ---@alias RosePine.Enum.Palette.Highlight "highlight_low" | "highlight_med" | "highlight_high"
