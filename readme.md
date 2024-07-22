@@ -30,7 +30,8 @@ Install `rose-pine/neovim` using your favourite plugin manager:
 
 ## Gallery
 
-**Rosé Pine**
+<details>
+	<summary><b>Rosé Pine</b></summary>
 
 ![Rosé Pine with Neovim](https://user-images.githubusercontent.com/1973/163921570-0f577baf-3199-4f09-9779-a7eb9238151a.png)
 
@@ -41,6 +42,17 @@ Install `rose-pine/neovim` using your favourite plugin manager:
 **Rosé Pine Dawn**
 
 ![Rosé Pine Dawn with Neovim](https://user-images.githubusercontent.com/1973/163921656-644a2db3-c55c-4e89-9bdd-39cdd7a2681b.png)
+	
+</details>
+
+<details>
+	<summary><b>Sakura Pine</b></summary>
+
+![image](https://github.com/user-attachments/assets/18246fd0-f5f6-4863-aa3b-3128454dff7f)
+![image](https://github.com/user-attachments/assets/1bcf7ad1-d13b-4ae9-9e7e-da254c326541)
+![image](https://github.com/user-attachments/assets/88d8c75d-86c3-4b1a-b78c-2bb88010623a)
+
+</details>
 
 ## Options
 
