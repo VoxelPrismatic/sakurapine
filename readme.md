@@ -1,13 +1,3 @@
-# Changes from RosePine
-
-1. `moon` and `main` themes are largely derived from the `dawn` theme using HSL vectors
-   - The original "Rose Pine" palette is exactly the same
-   - See [derive.lua](/lua/rose-pine/swatch/derive.lua)
-2. Includes a new "sakura" palette
-   - See the [Swatch Readme](/lua/rose-pine/swatch) for details on how to generate your own palette.
----
-
-
 <p align="center">
     <img src="https://github.com/rose-pine/rose-pine-theme/raw/main/assets/icon.png" width="80" />
     <h2 align="center">Sakura Pine for Neovim</h2>
