@@ -377,7 +377,7 @@ local function set_highlights()
 		-- ["@markup.raw.block"] = { bg = palette.surface },
 		["@markup.raw.delimiter.markdown"] = { fg = palette.subtle },
 
-		["@markup.list"] = { fg = palette.text },
+		["@markup.list"] = { fg = palette.pine },
 		["@markup.list.checked"] = { fg = palette.foam, bg = palette.foam, blend = 10 },
 		["@markup.list.unchecked"] = { fg = palette.text },
 
@@ -518,6 +518,10 @@ local function set_highlights()
 		NeoTreeGitModified = { fg = groups.git_dirty },
 		NeoTreeGitRenamed = { fg = groups.git_rename },
 		NeoTreeGitUntracked = { fg = groups.git_untracked },
+		NeoTreeTabActive = { fg = palette.text, bg = palette.overlay },
+		NeoTreeTabInactive = { fg = palette.subtle },
+		NeoTreeTabSeparatorActive = { link = "WinSeparator" },
+		NeoTreeTabSeparatorInactive = { link = "WinSeparator" },
 		NeoTreeTitleBar = { link = "StatusLineTerm" },
 
 		-- folke/flash.nvim
@@ -541,7 +545,7 @@ local function set_highlights()
 		WhichKeyIconYellow = { fg = palette.gold },
 		WhichKeyNormal = { link = "NormalFloat" },
 		WhichKeySeparator = { fg = palette.subtle },
-		WhichKeyTitle = make_border(palette.foam),
+		WhichKeyTitle = { link = "FloatTitle" },
 		WhichKeyValue = { fg = palette.rose },
 
 		-- lukas-reineke/indent-blankline.nvim
@@ -667,13 +671,15 @@ local function set_highlights()
 		TelescopeTitle = { fg = palette.foam, bold = styles.bold },
 
 		-- ibhagwan/fzf-lua
-		FzfLuaNormal = { link = "NormalFloat" },
-		FzfLuaTitle = { fg = palette.foam, bold = styles.bold },
 		FzfLuaBorder = make_border(),
-		FzfLuaHeaderText = { fg = palette.love },
-		FzfLuaHeaderBind = { fg = palette.rose },
-		FzfLuaBufFlagCur = { fg = palette.subtle },
 		FzfLuaBufFlagAlt = { fg = palette.subtle },
+		FzfLuaBufFlagCur = { fg = palette.subtle },
+		FzfLuaCursorLine = { fg = palette.text, bg = palette.overlay },
+		FzfLuaFilePart = { fg = palette.text },
+		FzfLuaHeaderBind = { fg = palette.rose },
+		FzfLuaHeaderText = { fg = palette.love },
+		FzfLuaNormal = { link = "NormalFloat" },
+		FzfLuaTitle = { link = "FloatTitle" },
 
 		-- rcarriga/nvim-notify
 		NotifyDEBUGBorder = make_border(),
@@ -917,6 +923,23 @@ local function set_highlights()
 		RainbowDelimiterRed = { fg = palette.love },
 		RainbowDelimiterViolet = { fg = palette.iris },
 		RainbowDelimiterYellow = { fg = palette.gold },
+
+		-- MeanderingProgrammer/markdown.nvim
+		RenderMarkdownBullet = { fg = palette.subtle },
+		RenderMarkdownChecked = { fg = palette.foam },
+		RenderMarkdownCode = { bg = palette.surface },
+		RenderMarkdownCodeInline = { fg = palette.text, bg = palette.overlay },
+		RenderMarkdownDash = { fg = palette.muted },
+		RenderMarkdownH1Bg = { bg = palette.iris, blend = 20 },
+		RenderMarkdownH2Bg = { bg = palette.foam, blend = 20 },
+		RenderMarkdownH3Bg = { bg = palette.rose, blend = 20 },
+		RenderMarkdownH4Bg = { bg = palette.gold, blend = 20 },
+		RenderMarkdownH5Bg = { bg = palette.pine, blend = 20 },
+		RenderMarkdownH6Bg = { bg = palette.leaf, blend = 20 },
+		RenderMarkdownTableFill = { link = "Conceal" },
+		RenderMarkdownTableHead = { fg = palette.subtle },
+		RenderMarkdownTableRow = { fg = palette.subtle },
+		RenderMarkdownUnchecked = { link = "Normal" },
 	}
 	local transparency_highlights = {
 		DiagnosticVirtualTextError = { fg = groups.error },
