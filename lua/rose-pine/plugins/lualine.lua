@@ -34,16 +34,11 @@ end
 function generator.normal(p)
     local config = require("rose-pine.config")
 
-    local bg_base = p.base
-    if config.options.styles.transparency then
-        bg_base = "NONE"
-    end
-
     return {
         normal = {
             a = { bg = p.rose, fg = p.base, gui = "bold" },
             b = { bg = p.overlay, fg = p.rose },
-            c = { bg = bg_base, fg = p.text },
+            c = { bg = p.base, fg = p.text },
         },
         insert = {
             a = { bg = p.foam, fg = p.base, gui = "bold" },
@@ -68,7 +63,7 @@ function generator.normal(p)
         inactive = {
             a = { bg = p.tree, fg = p.base, gui = "bold" },
             b = { bg = p.overlay, fg = p.tree },
-            c = { bg = bg_base, fg = p.text },
+            c = { bg = p.base, fg = p.text },
         },
         variants = {},
     }
