@@ -7,10 +7,12 @@
 
 > [!IMPORTANT]
 > This fork:
-> - Contains the colors `#50ab88`, `#49ce9b`, `#34ab7e` called 'tree'
+> - Has a new green color called "tree"
+>   - I am aware that recent additions to Rosé Pine has "leaf," but that was after this fork
 > - Has a new swatch called "Sakura," because I like pink
 >   - See the [Swatch Readme](/lua/rose-pine/swatch)
-> - Now derives all colors,
+> - Now derives all colors, from only the Dawn palette
+>   - Generate themes with ease
 
 ## Getting started
 
