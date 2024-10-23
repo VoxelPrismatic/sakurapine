@@ -20,7 +20,7 @@ function M.toCSS(palette, prefix, indent, selector)
 
 	-- Add ending hyphen if necessary
 	if(prefix ~= "" and prefix[#prefix - 1] ~= "-") then
-		prefix = prefix + "-"
+		prefix = prefix .. "-"
 	end
 
 	-- Remove starting -- if necessary
