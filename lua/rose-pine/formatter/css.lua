@@ -1,56 +1,126 @@
 M = {}
 
+local swatch_css_keys = {
+    base = "layer-base",
+    surface = "layer-surface",
+    overlay = "layer-overlay",
+    inv = "layer-inv",
+
+    text = "text-norm",
+    subtle = "text-subtle",
+    muted = "text-muted",
+
+    love = "paint-love",
+    rose = "paint-rose",
+    pine = "paint-pine",
+    foam = "paint-foam",
+    iris = "paint-iris",
+    tree = "paint-tree",
+    gold = "paint-gold",
+
+    highlight_low = "hl-low",
+    highlight_med = "hl-med",
+    highlight_high = "hl-high"
+}
+
 ---@param palette RosePine.Palette Palette to use
 ---@param prefix string | nil Prefix CSS variables (default "sakura")
 ---@param indent number | nil Indentation level (default 4)
 ---@param selector string | nil CSS selector (default ":root")
 ---@return string
-function M.toCSS(palette, prefix, indent, selector)
-	if(prefix == nil or type(prefix) ~= "string") then
-		prefix = "sakura"
+function M.palette_to_CSS(palette, prefix, indent, selector)
+	if(palette == nil) then
+		palette = require("rose-pine.palette")
 	end
 
-	if(indent == nil or type(indent) ~= "number") then
-		indent = 4
-	end
+    if(prefix == nil or type(prefix) ~= "string") then
+        prefix = "sakura"
+    end
 
-	if(selector == nil or type(selector) ~= "string") then
-		selector = ":root"
-	end
+    if(indent == nil or type(indent) ~= "number") then
+        indent = 4
+    end
 
-	-- Add ending hyphen if necessary
-	if(prefix ~= "" and prefix[#prefix - 1] ~= "-") then
-		prefix = prefix .. "-"
-	end
+    if(selector == nil or type(selector) ~= "string") then
+        selector = ":root"
+    end
 
-	-- Remove starting -- if necessary
-	if(prefix ~= "" and prefix[1] == "-" and prefix[2] == "-") then
-		prefix = prefix:sub(2)
-	end
+    -- Add ending hyphen if necessary
+    if(prefix ~= "" and prefix[#prefix - 1] ~= "-") then
+        prefix = prefix .. "-"
+    end
 
-	local indent_str = string.rep(" ", indent)
+    -- Remove starting -- if necessary
+    if(prefix ~= "" and prefix[1] == "-" and prefix[2] == "-") then
+        prefix = prefix:sub(2)
+    end
 
-	local css = selector .. " {\n" ..
-				indent_str .. "--" .. prefix .. "hl-high: " .. palette.highlight_high .. ";\n" ..
-				indent_str .. "--" .. prefix .. "hl-med: " .. palette.highlight_med .. ";\n" ..
-				indent_str .. "--" .. prefix .. "hl-low: " .. palette.highlight_low .. ";\n\n" ..
-				indent_str .. "--" .. prefix .. "layer-overlay: " .. palette.overlay .. ";\n" ..
-				indent_str .. "--" .. prefix .. "layer-surface: " .. palette.surface .. ";\n" ..
-				indent_str .. "--" .. prefix .. "layer-base: " .. palette.base .. ";\n" ..
-				indent_str .. "--" .. prefix .. "layer-inv: " .. palette.inv .. ";\n\n" ..
-				indent_str .. "--" .. prefix .. "text-norm: " .. palette.text .. ";\n" ..
-				indent_str .. "--" .. prefix .. "text-muted: " .. palette.muted .. ";\n" ..
-				indent_str .. "--" .. prefix .. "text-subtle: " .. palette.subtle .. ";\n\n" ..
-				indent_str .. "--" .. prefix .. "paint-foam: " .. palette.foam .. ";\n" ..
-				indent_str .. "--" .. prefix .. "paint-gold: " .. palette.gold .. ";\n" ..
-				indent_str .. "--" .. prefix .. "paint-iris: " .. palette.iris .. ";\n" ..
-				indent_str .. "--" .. prefix .. "paint-pine: " .. palette.pine .. ";\n" ..
-				indent_str .. "--" .. prefix .. "paint-tree: " .. palette.tree .. ";\n" ..
-				indent_str .. "--" .. prefix .. "paint-love: " .. palette.love .. ";\n" ..
-				indent_str .. "--" .. prefix .. "paint-rose: " .. palette.rose .. ";\n" ..
-				"}"
+    local indent_str = string.rep(" ", indent)
 
-	return css
+    local css = selector .. " {\n"
+
+    for key, value in pairs(swatch_css_keys) do
+        css = css .. indent_str .. "--" .. prefix .. value .. ": " .. palette[key] .. ";\n"
+    end
+
+    css = css .. "}"
+
+    return css
+end
+
+---@param swatch RosePine.Variant Swatch to convert
+---@param dark_theme RosePine.Enum.Variant Which theme to use for dark theme
+---@param prefix string | nil Prefix CSS variables (default "sakura")
+---@param indent number | nil Indentation level (default 4)
+---@param selector string | nil CSS selector (default ":root")
+---@return string
+function M.swatch_to_CSS(swatch, dark_theme, prefix, indent, selector)
+    if(swatch == nil) then
+        swatch = require("rose-pine.palette").variants
+    end
+    if(dark_theme ~= "moon" and dark_theme ~= "main") then
+        dark_theme = "moon"
+    end
+
+    if(prefix == nil or type(prefix) ~= "string") then
+        prefix = "sakura"
+    end
+
+    if(indent == nil or type(indent) ~= "number") then
+        indent = 4
+    end
+
+    if(selector == nil or type(selector) ~= "string") then
+        selector = ":root"
+    end
+
+    -- Add ending hyphen if necessary
+    if(prefix ~= "" and prefix[#prefix - 1] ~= "-") then
+        prefix = prefix .. "-"
+    end
+
+    -- Remove starting -- if necessary
+    if(prefix ~= "" and prefix[1] == "-" and prefix[2] == "-") then
+        prefix = prefix:sub(2)
+    end
+
+    local indent_str = string.rep(" ", indent)
+    local dawn = M.palette_to_CSS(swatch.dawn, prefix .. "dawn", indent, selector)
+    local moon = M.palette_to_CSS(swatch.moon, prefix .. "moon", indent, selector)
+    local main = M.palette_to_CSS(swatch.main, prefix .. "main", indent, selector)
+
+    local css = dawn .. "\n\n" .. moon .. "\n\n" .. main .. "\n\n" .. selector .. " {\n"
+
+    for _, value in pairs(swatch_css_keys) do
+        css = css .. indent_str .. "--" .. prefix .. value .. ": light-dark(" ..
+            "var(--" .. prefix .. "dawn-" .. value .. "), var(--" .. prefix .. dark_theme .. "-" .. value .. "));\n"
+    end
+
+    css = css .. "}"
+
+    return css
 end
 
 return M
+
+
