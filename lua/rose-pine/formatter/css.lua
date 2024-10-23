@@ -52,3 +52,5 @@ function M.toCSS(palette, prefix, indent, selector)
 
 	return css
 end
+
+return M
