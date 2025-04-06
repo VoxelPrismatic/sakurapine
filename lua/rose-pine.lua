@@ -4,7 +4,7 @@ local config = require("rose-pine.config")
 local function set_highlights()
 	local utilities = require("rose-pine.utilities")
 	local palette = require("rose-pine.palette")
-	local styles = config.options.styles
+	local styles = config.options.styles or { bold = true, italic = true }
 
 	local groups = {}
 	for group, color in pairs(config.options.groups) do
@@ -118,7 +118,7 @@ local function set_highlights()
 		PmenuKind = { fg = palette.foam, bg = groups.panel },
 		PmenuKindSel = { fg = palette.subtle, bg = palette.overlay },
 		PmenuSbar = { bg = groups.panel },
-		PmenuSel = { fg = palette.text, bg = palette.overlay },
+		PmenuSel = { fg = palette.text, bg = palette.highlight_low, bold = styles.bold, italic = styles.italic },
 		PmenuThumb = { bg = palette.muted },
 		Question = { fg = palette.gold },
 		-- QuickFixLink = {},
@@ -187,7 +187,7 @@ local function set_highlights()
 		Character = { fg = palette.gold },
 		Comment = { fg = palette.subtle, italic = styles.italic },
 		Conditional = { fg = palette.pine },
-		Constant = { fg = palette.gold },
+		Constant = { fg = palette.gold, bold = styles.bold },
 		Debug = { fg = palette.rose },
 		Define = { fg = palette.iris },
 		Delimiter = { fg = palette.subtle },
